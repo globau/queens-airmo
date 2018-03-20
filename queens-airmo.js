@@ -8,11 +8,11 @@ let int_id = window.setInterval(function() {
         floor_frame
             .contentWindow
             .document
-            .querySelectorAll('td[data=StartTimeDisplay]')
-            .forEach(function(td) {
-                var match = date_re.exec(td.textContent);
+            .querySelectorAll('td[data=StartTimeDisplay], div.SlideItemTextLine2')
+            .forEach(function(el) {
+                var match = date_re.exec(el.textContent);
                 if (!match) return;
-                td.textContent = match[2] + '/' + match[1] + '/' + match[3];
+                el.textContent = match[2] + '/' + match[1] + '/' + match[3];
             });
     };
     floor_frame.addEventListener('load', on_floor_frame_load);
